@@ -31,4 +31,10 @@ span.req {
 	color: red;
 }
 
+#error {
+	color: red;
+	font-weight: bold;
+	font-size: 15px;
+	font-style: italic;
+}
 
