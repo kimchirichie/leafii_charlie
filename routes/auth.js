@@ -53,7 +53,9 @@ router.route("/signup")
 			res.redirect("/"); // give error in future
 		} else {
 			res.render('auth/signup',{
+				title: "Leafii-Signup",
 				error: req.flash("error")
+				// error: 'hello'
 			});
 		}
 	})
@@ -63,13 +65,16 @@ router.route("/signup")
 		console.log("POST: /signup : Recording Signup");
 		if (req.user){
 			console.log("User session found. Invoke error");
-			res.send("can not be signed in!"); // CHANGE THIS TO PROPERLY RESPOND
+			req.flash("error", "can not be signed in!"); // CHANGE THIS TO PROPERLY RESPOND
+			res.redirect("/")
 		} else if (req.body.password != req.body.confirm){
 			console.log("Passwords mismatch. Invoke error");
-			res.send("passwords do not match"); // CHANGE THIS TO PROPERLY RESPOND
+			req.flash("error", "passwords do not match"); // CHANGE THIS TO PROPERLY RESPOND
+			res.redirect("/auth/signup")
 		} else if (req.body.username == "" || req.body.password == "") {
 			console.log("Required fields blank. Invoke error");
-			res.send("required fields can not be blank"); // CHANGE THIS TO PROPERLY RESPOND
+			req.flash("error", "required fields can not be blank"); // CHANGE THIS TO PROPERLY RESPOND
+			res.redirect("/auth/signup")
 		} else {
 			console.log("Parameters all good. Proceed to record in database")
 			User.sync().then(function (){
@@ -84,7 +89,7 @@ router.route("/signup")
 					res.redirect("/auth/signin")
 				}, function (err){
 					console.log("Unsuccessful in recording user in database");
-					res.flash("error", "Unsuccessful in recording user in database");
+					req.flash("error", "Unsuccessful in recording user in database");
 					res.redirect("/auth/signup");
 				})
 			});
@@ -104,8 +109,8 @@ router.route("/signin")
 		} else {
 			console.log("User session not found. Continue to signin page");
 			res.render('auth/signin',{
+				title: "Leafii-Signin",
 				error: req.flash("error")
-				// error: 'hello'
 			});
 		}
 	})

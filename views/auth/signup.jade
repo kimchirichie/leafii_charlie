@@ -1,4 +1,53 @@
 extends ../layout
 
 block content
-	p sign up page
+
+	#header
+		.container
+			.row
+				h1 Submit your online portfolio
+
+
+	.container
+		#error
+			p= error
+
+		.form
+			form(action="/auth/signup" method="post")
+				.field-wrap
+					label First Name
+						span.req *
+					input(type='text', placeholder="Bobby" required)
+
+				.field-wrap
+					label Last Name
+						span.req *
+					input(type='text', placeholder="Lee" required)
+
+				.field-wrap
+					label Email Address
+						span.req *
+					input(type='email', placeholder="example@uwaterloo.ca" required)
+
+				.field-wrap
+					label Password
+						span.req *
+					input(type='password', placeholder="password" required)
+
+				.field-wrap
+					label Confirm password
+						span.req *
+					input(type='password', placeholder="confirm" required)
+
+				.field-wrap
+					label Portfolio URL
+						span.req *
+					input(type='text', placeholder="www.myportfolio.com" required)
+
+				.field-wrap
+					label City
+						span.req *
+					input(type='text', placeholder="Waterloo" required)
+
+				input(type='submit' value="Submit")
+
