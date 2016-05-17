@@ -9,8 +9,6 @@ block content
 
 
 	.container
-		#error
-			p= error
 		.form
 			form(action="/auth/signup" method="post")
 				.field-wrap
@@ -61,6 +59,9 @@ block content
 						input(type='text', name="location" placeholder="Waterloo" value=user.location required)
 					- else
 						input(type='text', name="location" placeholder="Waterloo" required)
+
+				#error
+					p= error
 
 				input(type='submit' value="Submit")
 
