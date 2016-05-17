@@ -1,5 +1,48 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+
+	#header
+		div(class="container")
+			.row
+				h1=title
+				h4 Welcome to #{title}
+
+
+	.container
+		.form
+			.tab-content
+				form(action='/', method='post')
+					.top-row
+						.field-wrap
+							label First Name
+								span.req *
+							input(type='text', required='', autocomplete='off')
+
+						.field-wrap
+							label Last Name
+								span.req *
+							input(type='text', required='', autocomplete='off')
+
+						.field-wrap
+							label Email Address
+								span.req *
+							input(type='email', required='', autocomplete='off')
+
+						.field-wrap
+							label Password
+								span.req *
+							input(type='password', required='', autocomplete='off')
+
+						.field-wrap
+							label Domain
+								span.req *
+							input(type='text', required='', autocomplete='off')
+
+						.field-wrap
+							label City
+								span.req *
+							input(type='text', required='', autocomplete='off')
+
+				button.button.button-block(type='submit') Submit
+

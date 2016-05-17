@@ -1,8 +1,34 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
 }
+
+#header {
+  padding-top: 50px;
+  background-color: #1a1a1a;
+  color: #f8f8f8;
+  text-align: center;
+}
+
+.form {
+	padding-top: 50px;
+	text-align: center;
+}
+
+label {
+	padding-left: 20%;
+	text-align: left;
+}
+
+input {
+	width: 60%;
+}
+
+span.req {
+	color: red;
+}
+
+
