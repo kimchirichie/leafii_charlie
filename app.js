@@ -4,8 +4,13 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var passport = require("passport");
+var session = require("express-session");
+var flash = require('connect-flash');
 
+var auth = require('./routes/auth');
 var routes = require('./routes/index');
+var traffic = require("./routes/traffic");
 var users = require('./routes/users');
 
 var app = express();
@@ -20,10 +25,33 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
+// PASSPORT CONFIG
+app.use(session({ secret: "87dfyas9fy78234y82f25g35tg" })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // flash message
+passport.serializeUser(function(user, done) {
+  console.log("Serialize User: " + user.id);
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  console.log("Deserialize User: " + id);
+  User.findById(id).then(function(user) {
+    done(null, user);
+  });
+});
+
+// ROUTER
+// LOG TRAFFIC
+app.use(/\/$/, traffic);
 app.use('/', routes);
+app.use('/auth', auth);
 app.use('/users', users);
+
+// ASSETS
+app.use(express.static(path.join(__dirname, 'public')));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

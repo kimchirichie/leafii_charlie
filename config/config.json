@@ -1,0 +1,14 @@
+{
+  "development": {
+    "dialect": "sqlite",
+    "storage": "db/leafii_dev.db"
+  },
+  "test": {
+    "dialect": "sqlite",
+    "storage": "db/leafii_test.db"
+  },
+  "production": {
+    "dialect": "sqlite",
+    "storage": "db/leafii_prod.db"
+  }
+}
