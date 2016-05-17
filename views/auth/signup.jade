@@ -9,8 +9,6 @@ block content
 
 
 	.container
-		
-
 		.form
 			form(action="/auth/signup" method="post")
 				.field-wrap
@@ -49,8 +47,8 @@ block content
 					input(type='text', placeholder="Waterloo" required)
 
 				.field-wrap
-					#error
-						p= "There is an error"
+					div(id="error" class="animated fadeIn")
+						p= error
 
 				.field-wrap
 					input(type='submit' value="Submit")
