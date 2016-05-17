@@ -11,43 +11,56 @@ block content
 	.container
 		#error
 			p= error
-
 		.form
 			form(action="/auth/signup" method="post")
 				.field-wrap
 					label First Name
 						span.req *
-					input(type='text', placeholder="Bobby" required)
+					- if (user && user.firstName)
+						input(type='text', name="firstName" placeholder="Bobby" value=user.firstName required)
+					- else
+						input(type='text', name="firstName" placeholder="Bobby" required)
 
 				.field-wrap
 					label Last Name
 						span.req *
-					input(type='text', placeholder="Lee" required)
+					- if (user && user.lastName)
+						input(type='text', name="lastName" placeholder="Lee" value=user.lastName required)
+					- else
+						input(type='text', name="lastName" placeholder="Lee" required)
 
 				.field-wrap
 					label Email Address
 						span.req *
-					input(type='email', placeholder="example@uwaterloo.ca" required)
-
+					- if (user && user.email)
+						input(type='email', name="email" placeholder="example@uwaterloo.ca" value=user.email required)
+					- else
+						input(type='email', name="email" placeholder="example@uwaterloo.ca" required)
 				.field-wrap
 					label Password
 						span.req *
-					input(type='password', placeholder="password" required)
+					input(type='password', name="password" placeholder="password" required)
 
 				.field-wrap
 					label Confirm password
 						span.req *
-					input(type='password', placeholder="confirm" required)
+					input(type='password', name="confirm" placeholder="confirm" required)
 
 				.field-wrap
 					label Portfolio URL
 						span.req *
-					input(type='text', placeholder="www.myportfolio.com" required)
+					- if (user && user.url)
+						input(type='text', name="url" placeholder="www.myportfolio.com" value=user.url required)
+					-else
+						input(type='text', name="url" placeholder="www.myportfolio.com" required)
 
 				.field-wrap
 					label City
 						span.req *
-					input(type='text', placeholder="Waterloo" required)
+					- if (user && user.location)
+						input(type='text', name="location" placeholder="Waterloo" value=user.location required)
+					- else
+						input(type='text', name="location" placeholder="Waterloo" required)
 
 				input(type='submit' value="Submit")
 
