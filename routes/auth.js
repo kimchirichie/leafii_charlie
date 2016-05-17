@@ -52,10 +52,13 @@ router.route("/signup")
 			req.flash('error', 'Already signed in!');
 			res.redirect("/"); // give error in future
 		} else {
+			// following code is to pre populate the signup page
+			var user = req.session.user
+			delete req.session.user
 			res.render('auth/signup',{
-				title: "Leafii-Signup",
-				error: req.flash("error")
-				// error: 'hello'
+				title: "Leafii - Sign Up",
+				error: req.flash("error"),
+				user: user
 			});
 		}
 	})
@@ -63,6 +66,12 @@ router.route("/signup")
 	// requires: user session is undefined
 	.post(function (req, res){
 		console.log("POST: /signup : Recording Signup");
+		
+		req.session.user = req.body
+		delete req.session.user.password
+		delete req.session.user.confirm
+		delete req.session.user.salt
+
 		if (req.user){
 			console.log("User session found. Invoke error");
 			req.flash("error", "can not be signed in!"); // CHANGE THIS TO PROPERLY RESPOND
@@ -85,13 +94,15 @@ router.route("/signup")
 				User.create(data).then(function (user){
 					console.log("Successfully recorded user in database");
 					console.dir(user.get());
+					delete req.session.user; // delete the form prefiller
 					req.flash('success', 'Sign up successful. plese sign in!');
 					res.redirect("/auth/signin")
-				}, function (err){
+				}).catch(function (err){
 					console.log("Unsuccessful in recording user in database");
-					req.flash("error", "Unsuccessful in recording user in database");
+					console.dir(err)
+					req.flash("error", err.errors[0].message);
 					res.redirect("/auth/signup");
-				})
+				});
 			});
 		}
 	});
@@ -109,7 +120,7 @@ router.route("/signin")
 		} else {
 			console.log("User session not found. Continue to signin page");
 			res.render('auth/signin',{
-				title: "Leafii-Signin",
+				title: "Leafii - Sign In",
 				error: req.flash("error")
 			});
 		}
