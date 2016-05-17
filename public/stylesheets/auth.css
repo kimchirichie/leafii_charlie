@@ -19,12 +19,12 @@ a {
 }
 
 label {
-	padding-left: 20%;
+
 	text-align: left;
 }
 
 input {
-	width: 60%;
+	width: 100%;
 }
 
 span.req {
@@ -32,9 +32,19 @@ span.req {
 }
 
 #error {
-	color: red;
-	font-weight: bold;
+	color: black;
 	font-size: 15px;
-	font-style: italic;
+	background-color: #DC4141;
+	height: 40px;
+	line-height: 40px;
+	margin-bottom: 20px;
+	border-radius: 4px;
 }
 
+
+
+
+.field-wrap {
+	width: 60%;
+	margin-left: 20%;
+}

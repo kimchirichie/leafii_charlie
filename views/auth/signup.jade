@@ -48,8 +48,10 @@ block content
 						span.req *
 					input(type='text', placeholder="Waterloo" required)
 
-				#error
-					p= "There is an error"
+				.field-wrap
+					#error
+						p= "There is an error"
 
-				input(type='submit' value="Submit")
+				.field-wrap
+					input(type='submit' value="Submit")
 
