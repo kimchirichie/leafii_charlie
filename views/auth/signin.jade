@@ -1,5 +1,9 @@
 extends ../layout
 
+block stylesheet
+	link(rel='stylesheet', href='/stylesheets/auth.css')
+
+
 block content
 
 	#header
@@ -20,7 +24,7 @@ block content
 						span.req *
 					input(name="password" type='password', placeholder="password" required)
 
-				if !error
+				if error
 					.field-wrap
 						div(id="error" class="animated fadeIn")
 							p= error
@@ -30,3 +34,4 @@ block content
 
 				.field-wrap
 					a(class="signUpTag" href="/auth/signup") Don't have an account? Sign up here
+

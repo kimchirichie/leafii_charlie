@@ -3,7 +3,7 @@
 module.exports = {
   up: function (queryInterface, Sequelize) {
     return queryInterface.createTable(
-      'users',
+      'feedback',
       {
         id: {
           type: Sequelize.INTEGER,
@@ -18,20 +18,13 @@ module.exports = {
         },
         email: {
           type: Sequelize.STRING,
-          unique: true
         },
-        password: Sequelize.STRING,
-        firstName: Sequelize.STRING,
-        lastName: Sequelize.STRING,
-        url: {
-          type: Sequelize.STRING,
-          unique: true
-        },
-        location: Sequelize.STRING
+        name: Sequelize.STRING,
+        content: Sequelize.TEXT
       }
     );
   },
   down: function (queryInterface, Sequelize) {
-    queryInterface.dropTable('users');
+    queryInterface.dropTable('feedback');
   }
 };
