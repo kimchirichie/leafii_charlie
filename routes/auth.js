@@ -48,12 +48,10 @@ router.route("/signup")
 			res.redirect("/"); // give error in future
 		} else {
 			// following code is to pre populate the signup page
-			var user = req.session.user
-			delete req.session.user
 			res.render("auth/signup",{
 				title: "Leafii - Sign Up",
-				error: req.flash("error"),
-				user: user
+				error: req.flash("error")[0],
+				user: req.session.user
 			});
 		}
 	})
@@ -84,11 +82,11 @@ router.route("/signup")
 			req.flash("error", "required fields can not be blank"); // CHANGE THIS TO PROPERLY RESPOND
 			res.redirect("/auth/signup")
 		} else {
-			delete req.session.user; // delete the form prefiller
 			console.log("Parameters all good. Proceed to record in database")
 			User.sync().then(function (){
 				req.body.password = bcrypt.hashSync(req.body.password);
 				User.create(req.body).then(function (user){
+					delete req.session.user; // delete the form prefiller
 					console.log("Successfully recorded user in database");
 					console.dir(user.get());
 					req.flash("success", "Sign up successful. plese sign in!");
@@ -118,7 +116,7 @@ router.route("/signin")
 			console.log("User session not found. Continue to signin page");
 			res.render("auth/signin",{
 				title: "Leafii - Sign In",
-				error: req.flash("error"),
+				error: req.flash("error")[0],
 				email: req.body.email
 
 			});

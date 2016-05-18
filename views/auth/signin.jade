@@ -24,7 +24,7 @@ block content
 						span.req *
 					input(name="password" type='password', placeholder="password" required)
 
-				if !error
+				if error
 					.field-wrap
 						div(id="error" class="animated fadeIn")
 							p= error

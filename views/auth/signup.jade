@@ -64,7 +64,7 @@ block content
 					- else
 						input(type='text', name="location" placeholder="Waterloo" required)
 
-				if !error
+				if error
 					.field-wrap
 						div(id="error" class="animated fadeIn")
 							p= error
