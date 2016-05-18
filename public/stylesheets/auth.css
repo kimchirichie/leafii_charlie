@@ -1,9 +1,5 @@
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00B7FF;
+  font: 14px "Raleway", Helvetica, Arial, sans-serif;
 }
 
 #header {
@@ -14,8 +10,13 @@ a {
 }
 
 .form {
-	padding-top: 50px;
-	text-align: center;
+	padding: 30px;
+	margin: 50px auto;
+	border: solid thin black;
+    border-radius: 6px;
+    background: rgba(220, 220, 220, 0.19);
+    border-color: grey;
+    max-width: 60%;
 }
 
 label {
@@ -41,7 +42,10 @@ span.req {
 	border-radius: 4px;
 }
 
-.field-wrap {
-	width: 60%;
-	margin-left: 20%;
+
+.signUpTag {
+
+	text-decoration: none;
+	color: grey;
+
 }

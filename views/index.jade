@@ -2,8 +2,16 @@ extends layout
 
 block content
 
-	#header
+	#landing
 		div(class="container")
 			.row
-				h1 Leafii
-				h4 Welcome to Leafii
+				img(src="/images/leafii.svg") 
+				h5 Online Portfolio Search Engine
+
+		div(class="container")
+			.row
+				h6 Sign up. Let recruiters find you
+				a(href="/auth/signup" class="signUpbtn")
+					button Sign Up 
+					
+
