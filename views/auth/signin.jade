@@ -1,5 +1,9 @@
 extends ../layout
 
+block stylesheet
+	link(rel='stylesheet', href='/stylesheets/auth.css')
+
+
 block content
 	#error
 		p= error
@@ -7,7 +11,11 @@ block content
 	p sign in page
 	form(action="/auth/signin" method="post")
 		label Email
-		input(name="email" type="email" placeholder="example@abc.com")
+		- if (email)
+			input(name="email" type="email" placeholder="example@abc.com" value=email)
+		- else
+			input(name="email" type="email" placeholder="example@abc.com")
+
 		label Password
 		input(name="password" type="password" placeholder="password")
 		input(type="submit" value="signin")

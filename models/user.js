@@ -19,7 +19,6 @@ var sequelize = new Sequelize(undefined,undefined, undefined, {
 module.exports = sequelize.define("user", {
 	email: {type: Sequelize.STRING, allowNull: false, unique: true},
 	password: {type: Sequelize.STRING, allowNull: false},
-	salt: {type: Sequelize.STRING, allowNull: false},
 	firstName: {type: Sequelize.STRING, allowNull: false},
 	lastName: {type: Sequelize.STRING, allowNull: false},
 	url: {type: Sequelize.STRING, allowNull: false, unique: true},

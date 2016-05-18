@@ -1,33 +1,39 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+// IMPORT MODULES
+var express = require("express");
+var path = require("path");
+var favicon = require("serve-favicon");
+var logger = require("morgan");
+var cookieParser = require("cookie-parser");
+var bodyParser = require("body-parser");
 var passport = require("passport");
 var session = require("express-session");
-var flash = require('connect-flash');
+var flash = require("connect-flash");
 
-var auth = require('./routes/auth');
-var routes = require('./routes/index');
+// DATABASE MODEL
+var User = require("./models/user");
+
+// ROUTER
+var auth = require("./routes/auth");
+var routes = require("./routes/index");
 var traffic = require("./routes/traffic");
-var users = require('./routes/users');
+var users = require("./routes/users");
 
+// SERVER OPRTATION
 var app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+// VIEW ENGINE SETUP
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "jade");
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+// MIDDLEWARES
+app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
+app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // PASSPORT CONFIG
-app.use(session({ secret: "87dfyas9fy78234y82f25g35tg" })); // session secret
+app.use(session({ secret: "h5jkht6938gfv9ydv8yas9df789234" })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // flash message
@@ -46,16 +52,16 @@ passport.deserializeUser(function(id, done) {
 // ROUTER
 // LOG TRAFFIC
 app.use(/\/$/, traffic);
-app.use('/', routes);
-app.use('/auth', auth);
-app.use('/users', users);
+app.use("/", routes);
+app.use("/auth", auth);
+app.use("/users", users);
 
 // ASSETS
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  var err = new Error("Not Found");
   err.status = 404;
   next(err);
 });
@@ -64,10 +70,10 @@ app.use(function(req, res, next) {
 
 // development error handler
 // will print stacktrace
-if (app.get('env') === 'development') {
+if (app.get("env") === "development") {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error', {
+    res.render("error", {
       message: err.message,
       error: err
     });
@@ -78,7 +84,7 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
-  res.render('error', {
+  res.render("error", {
     message: err.message,
     error: {}
   });
