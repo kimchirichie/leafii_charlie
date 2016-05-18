@@ -21,7 +21,6 @@ module.exports = {
           unique: true
         },
         password: Sequelize.STRING,
-        salt: Sequelize.STRING,
         firstName: Sequelize.STRING,
         lastName: Sequelize.STRING,
         url: {
