@@ -46,9 +46,10 @@ block content
 						span.req *
 					input(type='text', placeholder="Waterloo" required)
 
-				.field-wrap
-					div(id="error" class="animated fadeIn")
-						p= error
+				if !error
+					.field-wrap
+						div(id="error" class="animated fadeIn")
+							p= error
 
 				.field-wrap
 					input(type='submit' value="Submit")
