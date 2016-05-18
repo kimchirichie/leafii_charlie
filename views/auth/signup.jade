@@ -55,14 +55,16 @@ block content
 				.field-wrap
 					label City
 						span.req *
+
 					- if (user && user.location)
 						input(type='text', name="location" placeholder="Waterloo" value=user.location required)
 					- else
 						input(type='text', name="location" placeholder="Waterloo" required)
-							
-				.field-wrap
-					div(id="error" class="animated fadeIn")
-						p= error
+
+				if !error
+					.field-wrap
+						div(id="error" class="animated fadeIn")
+							p= error
 
 				.field-wrap
 					input(type='submit' value="Submit")
