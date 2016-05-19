@@ -4,9 +4,9 @@ body {
 
 #header {
   padding-top: 50px;
-  background-color: #1a1a1a;
   color: #f8f8f8;
   text-align: center;
+  background-image: url('/images/values-bg.jpg');
 }
 
 .form {
@@ -45,8 +45,10 @@ span.req {
 
 
 .signUpTag {
-
 	text-decoration: none;
 	color: grey;
+}
 
+textarea {
+	width:100%;
 }
