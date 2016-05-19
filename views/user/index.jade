@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+	.container
+		each user in users
+			.row
+				div(class="twelve columns")
+					h1= user.firstName + ' ' + user.lastName
+					span= "url: " + user.url
+					br
+					span= "email: " + user.email
+					br
+					span= "location: " + user.location
