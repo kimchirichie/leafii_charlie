@@ -14,6 +14,23 @@ block content
 		.form
 			form(action="/auth/signup" method="post")
 				.field-wrap
+					label Portfolio URL
+						span.req *
+					- if (user && user.url)
+						input(type='text', name="url" placeholder="www.myportfolio.com" value=user.url required)
+					-else
+						input(type='text', name="url" placeholder="www.myportfolio.com" required)
+
+				.field-wrap
+					label City
+						span.req *
+
+					- if (user && user.location)
+						input(type='text', name="location" placeholder="Waterloo" value=user.location required)
+					- else
+						input(type='text', name="location" placeholder="Waterloo" required)
+
+				.field-wrap
 					label First Name
 						span.req *
 					- if (user && user.firstName)
@@ -45,23 +62,6 @@ block content
 					label Confirm password
 						span.req *
 					input(type='password', name="confirm" placeholder="confirm" required)
-
-				.field-wrap
-					label Portfolio URL
-						span.req *
-					- if (user && user.url)
-						input(type='text', name="url" placeholder="www.myportfolio.com" value=user.url required)
-					-else
-						input(type='text', name="url" placeholder="www.myportfolio.com" required)
-
-				.field-wrap
-					label City
-						span.req *
-
-					- if (user && user.location)
-						input(type='text', name="location" placeholder="Waterloo" value=user.location required)
-					- else
-						input(type='text', name="location" placeholder="Waterloo" required)
 
 				if error
 					.field-wrap
