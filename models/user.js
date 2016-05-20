@@ -17,10 +17,13 @@ var sequelize = new Sequelize(undefined,undefined, undefined, {
 });
 
 module.exports = sequelize.define("user", {
+	id: {type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true},
 	email: {type: Sequelize.STRING, allowNull: false, unique: true},
 	password: {type: Sequelize.STRING, allowNull: false},
 	firstName: {type: Sequelize.STRING, allowNull: false},
 	lastName: {type: Sequelize.STRING, allowNull: false},
 	url: {type: Sequelize.STRING, allowNull: false, unique: true},
-	location: {type: Sequelize.STRING, allowNull: false}
+	location: {type: Sequelize.STRING, allowNull: false},
+	keywords: {type: Sequelize.TEXT},
+	admin: {type: Sequelize.BOOLEAN, defaultValue: false, allowNull: false}
 });
