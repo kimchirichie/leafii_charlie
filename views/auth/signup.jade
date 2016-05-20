@@ -13,6 +13,7 @@ block content
 	.container
 		.form(class="animated fadeIn")
 			form(action="/auth/signup" method="post")
+
 				.field-wrap
 					label First Name
 						span.req *
@@ -28,6 +29,15 @@ block content
 						input(type='text', name="lastName" placeholder="Lee" value=user.lastName required)
 					- else
 						input(type='text', name="lastName" placeholder="Lee" required)
+
+				.field-wrap
+					label City
+						span.req *
+
+					- if (user && user.location)
+						input(type='text', name="location" placeholder="Waterloo" value=user.location required)
+					- else
+						input(type='text', name="location" placeholder="Waterloo" required)
 
 				.field-wrap
 					label Email Address
@@ -53,15 +63,6 @@ block content
 						input(type='text', name="url" placeholder="www.myportfolio.com" value=user.url required)
 					-else
 						input(type='text', name="url" placeholder="www.myportfolio.com" required)
-
-				.field-wrap
-					label City
-						span.req *
-
-					- if (user && user.location)
-						input(type='text', name="location" placeholder="Waterloo" value=user.location required)
-					- else
-						input(type='text', name="location" placeholder="Waterloo" required)
 
 				if error
 					.field-wrap

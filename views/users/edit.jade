@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+	.container
+		each user in users
+			div(class="row" style="border:solid")
+				form(action="/users/#{user.id}" method="post")
+					div(class="six columns")
+						h3 User ID: #{user.id}
+						label email:
+						input(type="text" name="email" value=user.email)
+						label password:
+						input(type="text" name="password" value=user.password)
+						label url:
+						input(type="text" name="url" value=user.url)
+						input(type="hidden" name="id" value=user.id)
+					div(class="six columns")
+						label admin?: 
+							input(type="checkbox" name="admin" checked=user.admin)
+						label name: 
+						input(type="text" name="firstName" value=user.firstName)
+						input(type="text" name="lastName" value=user.lastName)
+						label location
+						input(type="text" name="location" value=user.location)
+						label keywords
+						input(type="text" name="keywords" value=user.keywords)
+						br
+						input(type="submit" value="update")

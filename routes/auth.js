@@ -90,7 +90,7 @@ router.route("/signup")
 					console.log("Successfully recorded user in database");
 					console.dir(user.get());
 					req.flash("success", "Sign up successful. plese sign in!");
-					res.redirect("/auth/signin")
+					res.redirect("/thankyou")
 				}).catch(function (err){
 					console.log("Unsuccessful in recording user in database");
 					console.dir(err)

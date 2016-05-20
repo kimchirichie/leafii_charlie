@@ -27,7 +27,13 @@ module.exports = {
           type: Sequelize.STRING,
           unique: true
         },
-        location: Sequelize.STRING
+        location: Sequelize.STRING,
+        keywords: Sequelize.TEXT,
+        admin: {
+          type: Sequelize.BOOLEAN,
+          defaultValue: false,
+          allowNull: false
+        }
       }
     );
   },
