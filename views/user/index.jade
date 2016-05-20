@@ -2,6 +2,8 @@ extends ../layout
 
 block content
 	.container
+		.raw= JSON.stringify(users)
+
 		each user in users
 			.row
 				div(class="twelve columns")
