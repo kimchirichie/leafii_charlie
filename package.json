@@ -6,7 +6,6 @@
     "start": "node ./bin/www"
   },
   "devDependencies": {
-    "sequelize-cli": "latest"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
@@ -22,6 +21,7 @@
     "passport-local": "latest",
     "express-session": "latest",
     "connect-flash": "latest",
-    "bcrypt-nodejs": "latest"
+    "bcrypt-nodejs": "latest",
+    "sequelize-cli": "latest"
   }
 }
