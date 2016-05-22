@@ -1,28 +1,39 @@
 extends ../layout
 
 block content
-	.container
+
+	#header
+		.container
+			.row
+				h1 System Admin
+
+	div(class="sideMenu")
+		nav(class="menu-title") DashBoard
+		nav(class="menu-title") User Information
+
+
+	div(class="panel")
 		each user in users
-			div(class="row" style="border:solid")
+			div(class="row user")
 				form(action="/users/#{user.id}" method="post")
 					div(class="six columns")
 						h3 User ID: #{user.id}
-						label email:
-						input(type="text" name="email" value=user.email)
-						label password:
-						input(type="text" name="password" value=user.password)
-						label url:
-						input(type="text" name="url" value=user.url)
-						input(type="hidden" name="id" value=user.id)
-					div(class="six columns")
-						label admin?: 
-							input(type="checkbox" name="admin" checked=user.admin)
-						label name: 
+						label Name: 
 						input(type="text" name="firstName" value=user.firstName)
 						input(type="text" name="lastName" value=user.lastName)
-						label location
+						label Email:
+						input(type="text" name="email" value=user.email)
+						label Password:
+						input(type="text" name="password" value=user.password)
+						label URL:
+						input(type="text" name="url" value=user.url)
+						input(type="hidden" name="id" value=user.id)
+						label Location
 						input(type="text" name="location" value=user.location)
-						label keywords
+						label Keywords
 						input(type="text" name="keywords" value=user.keywords)
-						br
+						div(class="adminBox")
+							label Admin?: 
+								input(class="adminCheckBox" type="checkbox" name="admin" checked=user.admin)
 						input(type="submit" value="update")
+						input(type="submit" value="delete")
