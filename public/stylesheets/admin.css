@@ -1,9 +1,7 @@
 .sideMenu {
 	
 	position: absolute;
-	height: 100%;
-	width: 210px !important;
-	border: solid;
+	width: 215px !important;
 
 }
 
@@ -14,20 +12,21 @@
 }
 
 .panel {
-	margin-left: 240px;
+	margin-left: 215px;
+	padding: 5%;
+	border-left: thin solid;
 }
 
 .users {
 	padding: 20px;
-	border-bottom: solid;
 }
 
 .menu-title {
 	padding: 15px;
 	font-weight: 600;
 	cursor: pointer;
-	border: solid;
 	text-transform: uppercase;
+	border-bottom: thin solid;
 }
 
 .menu-title:hover {

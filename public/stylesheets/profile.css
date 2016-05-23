@@ -1,10 +1,7 @@
 .profileSideMenu {
 	
 	position: fixed;
-	height: 100%;
 	width: 215px !important;
-	border-right: thin solid;
-
 }
 
 #profileHeader {
@@ -17,8 +14,9 @@
 }
 
 .profilePanel {
-	margin-left: 240px;
+	margin-left: 215px;
 	padding: 5%;
+	border-left: thin solid;
 }
 
 .userProfile {
