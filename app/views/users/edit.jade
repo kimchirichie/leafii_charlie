@@ -14,7 +14,7 @@ block content
 
 	div(class="panel")
 		each user in users
-			div(class="row users")
+			div(class="row user")
 				form(action="/users/#{user.id}" method="post")
 					div(class="six columns")
 						h3 User ID: #{user.id}

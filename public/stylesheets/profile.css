@@ -1,0 +1,43 @@
+.profileSideMenu {
+	
+	position: fixed;
+	height: 100%;
+	width: 215px !important;
+	border-right: thin solid;
+
+}
+
+#profileHeader {
+	padding-top: 50px;
+	width: 85%;
+	margin-left: 15%;
+  	color: #f8f8f8;
+  	text-align: center;
+  	background-image: url('/images/values-bg.jpg');
+}
+
+.profilePanel {
+	margin-left: 240px;
+	padding: 5%;
+}
+
+.userProfile {
+	padding: 20px;
+}
+
+.profile-menu-title {
+	padding: 15px;
+	font-weight: 600;
+	cursor: pointer;
+	text-transform: uppercase;
+	border-bottom: thin solid;
+}
+
+.profile-menu-title:hover {
+	background-color: rgba(0,0,0,0.2);
+}
+
+.profile-menu-title.active {
+	color: #fff;
+	background-color: rgba(0,0,0,0.7);
+}

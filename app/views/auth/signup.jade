@@ -1,0 +1,74 @@
+extends ../layout
+
+block stylesheet
+	link(rel='stylesheet', href='/stylesheets/auth.css')
+
+block content
+
+	#header
+		.container
+			.row
+				h1 Submit your online portfolio
+
+	.container
+		.form(class="animated fadeIn")
+			form(action="/auth/signup" method="post")
+
+				.field-wrap
+					label First Name
+						span.req *
+					- if (user && user.firstName)
+						input(type='text', name="firstName" placeholder="Bobby" value=user.firstName required)
+					- else
+						input(type='text', name="firstName" placeholder="Bobby" required)
+
+				.field-wrap
+					label Last Name
+						span.req *
+					- if (user && user.lastName)
+						input(type='text', name="lastName" placeholder="Lee" value=user.lastName required)
+					- else
+						input(type='text', name="lastName" placeholder="Lee" required)
+
+				.field-wrap
+					label City
+						span.req *
+
+					- if (user && user.location)
+						input(type='text', name="location" placeholder="Waterloo" value=user.location required)
+					- else
+						input(type='text', name="location" placeholder="Waterloo" required)
+
+				.field-wrap
+					label Email Address
+						span.req *
+					- if (user && user.email)
+						input(type='email', name="email" placeholder="example@uwaterloo.ca" value=user.email required)
+					- else
+						input(type='email', name="email" placeholder="example@uwaterloo.ca" required)
+				.field-wrap
+					label Password
+						span.req *
+					input(type='password', name="password" placeholder="password" required)
+
+				.field-wrap
+					label Confirm password
+						span.req *
+					input(type='password', name="confirm" placeholder="confirm" required)
+
+				.field-wrap
+					label Portfolio URL
+						span.req *
+					- if (user && user.url)
+						input(type='text', name="url" placeholder="www.myportfolio.com" value=user.url required)
+					-else
+						input(type='text', name="url" placeholder="www.myportfolio.com" required)
+
+				if error
+					.field-wrap
+						div(id="error" class="animated fadeIn")
+							p= error
+
+				.field-wrap
+					input(type='submit' value="Submit")
+

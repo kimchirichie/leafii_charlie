@@ -1,9 +1,35 @@
 extends ../layout
 
 block content
-	h1 profile page
-	p= user.firstName
-	p= user.lastName
-	p= user.email
-	p= user.url
-	p= user.location
+
+
+	div(class="profileSideMenu")
+		nav(class="profile-menu-title") DashBoard
+		nav(class="profile-menu-title") Edit Profile
+		nav(class="profile-menu-title") Analytics
+		nav(class="profile-menu-title") Log Out
+
+	#profileHeader
+		.container
+			.row
+				h1 User Profile
+
+	div(class="profilePanel")
+		div(class="row userProfile")
+			label Name: 
+			input(type="text" name="firstName" value=user.firstName)
+			input(type="text" name="lastName" value=user.lastName)
+			label Email:
+			input(type="text" name="email" value=user.email)
+			label Password:
+			input(type="password" name="password" value=user.password)
+			label URL:
+			input(type="text" name="url" value=user.url)
+			input(type="hidden" name="id" value=user.id)
+			label Location
+			input(type="text" name="location" value=user.location)
+			label Keywords
+			input(type="text" name="keywords" value=user.keywords)
+			label Modified at
+			input(type="date" name="modifed" value="05/19/2016")
+			input(type="submit" value="update")
