@@ -1,17 +1,9 @@
 .profileSideMenu {
 	
-	position: fixed;
+	position: absolute;
 	width: 215px !important;
 }
 
-#profileHeader {
-	padding-top: 50px;
-	width: 85%;
-	margin-left: 15%;
-  	color: #f8f8f8;
-  	text-align: center;
-  	background-image: url('/images/values-bg.jpg');
-}
 
 .profilePanel {
 	margin-left: 215px;

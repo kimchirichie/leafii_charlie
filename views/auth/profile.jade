@@ -2,17 +2,16 @@ extends ../layout
 
 block content
 
+	#header
+		.container
+			.row
+				h1 User Profile
 
 	div(class="profileSideMenu")
 		nav(class="profile-menu-title") DashBoard
 		nav(class="profile-menu-title") Edit Profile
 		nav(class="profile-menu-title") Analytics
 		nav(class="profile-menu-title") Log Out
-
-	#profileHeader
-		.container
-			.row
-				h1 User Profile
 
 	div(class="profilePanel")
 		div(class="row userProfile")
@@ -22,7 +21,7 @@ block content
 			label Email:
 			input(type="text" name="email" value=user.email)
 			label Password:
-			input(type="password" name="password" value=user.password)
+			input(type="text" name="password" value=user.password)
 			label URL:
 			input(type="text" name="url" value=user.url)
 			input(type="hidden" name="id" value=user.id)
