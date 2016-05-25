@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var nodemailer = require('nodemailer');
+
 
 // DATABASE MODEL
 var User = require("../models/user.js");
@@ -18,11 +20,37 @@ router.use(function (req, res, next){
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-	res.send('some string');
+	res.render('contact', {title: 'Contact'});
 });
 
-router.post("/:id",function(req, res){
-	res.send('some string');
+router.post("/send",function(req, res, next){
+
+	var transporter = nodemailer.createTransport({
+		service: 'Gmail',
+		auth: {
+			user: 'support@leafii.com',
+			pass: 'something'
+		}
+	});
+
+	var mainOptions = {
+		from: 'John Doe <johndoe@gmail.com',
+		to: 'techguy@gmail.com',
+		subject: 'Website Submission',
+		text: 'you have a new submission with the following details' + req.body.name + 'Email: '+req.body.email+ 'Message: ' +req.body.message,
+		html: '<p> you got mail</p>'
+	};
+
+	transporter.sendMail(mailOptions, function(error, info){
+		if(error){
+			console.log(error);
+			res.redirect('/');
+		}
+		else {
+			console.log('Message sent: '+info.response);
+			res.redirect('/');
+		}
+	});
 });
 
 module.exports = router;
