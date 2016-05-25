@@ -7,8 +7,6 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "angular": "^1.5.5",
-    "angular-material": "^1.1.0-rc4-master-06e7e99",
     "bcrypt-nodejs": "latest",
     "body-parser": "~1.13.2",
     "connect-flash": "latest",
@@ -23,6 +21,7 @@
     "sequelize": "latest",
     "sequelize-cli": "latest",
     "serve-favicon": "~2.3.0",
-    "sqlite3": "latest"
+    "sqlite3": "latest",
+    "nodemailer": "latest"
   }
 }

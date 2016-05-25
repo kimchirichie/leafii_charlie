@@ -14,6 +14,7 @@ var User = require("./models/user");
 
 // ROUTER
 var auth = require("./routes/auth");
+var emailer = require("./routes/emailer");
 var routes = require("./routes/index");
 var traffic = require("./routes/traffic");
 var users = require("./routes/users");
@@ -54,6 +55,7 @@ passport.deserializeUser(function(id, done) {
 app.use(/\/$/, traffic);
 app.use("/", routes);
 app.use("/auth", auth);
+app.use("/emailer", emailer);
 app.use("/users", users);
 
 // ASSETS

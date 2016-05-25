@@ -1,0 +1,26 @@
+{
+  "name": "leafii",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Talent Zeng",
+    "Richard Sin"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/sinr0202/leafii_search",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material-icons": "~0.7.0",
+    "angular-material-data-table": "~0.10.9",
+    "angular-nvd3": "~1.0.7",
+    "angular-touch": "~1.5.5",
+    "angular-material": "~1.0.9",
+    "angular": "~1.5.5"
+  }
+}
