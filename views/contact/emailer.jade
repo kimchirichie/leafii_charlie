@@ -12,6 +12,10 @@ block content
 			form(method="post" action="/contact/send" )
 
 				.field-wrap
+					label Subject
+					input(name="Subject" type='text', placeholder="New feature added")
+
+				.field-wrap
 					label Message
 					textarea(name="Message" class="emailMsg" type='text', placeholder="New Update to Leafii")
 				

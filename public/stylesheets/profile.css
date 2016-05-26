@@ -1,33 +1,27 @@
 .profileSideMenu {
-	
-	position: absolute;
-	width: 215px !important;
-}
-
+  position: absolute;
+  width: 215px !important; }
 
 .profilePanel {
-	margin-left: 215px;
-	padding: 5%;
-	border-left: thin solid;
-}
+  margin-left: 215px;
+  padding: 5%;
+  border-left: thin solid; }
 
 .userProfile {
-	padding: 20px;
-}
+  padding: 20px; }
 
 .profile-menu-title {
-	padding: 15px;
-	font-weight: 600;
-	cursor: pointer;
-	text-transform: uppercase;
-	border-bottom: thin solid;
-}
+  padding: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  border-bottom: thin solid; }
 
 .profile-menu-title:hover {
-	background-color: rgba(0,0,0,0.2);
-}
+  background-color: rgba(0, 0, 0, 0.2); }
 
 .profile-menu-title.active {
-	color: #fff;
-	background-color: rgba(0,0,0,0.7);
-}
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7); }
+
+/*# sourceMappingURL=profile.css.map */

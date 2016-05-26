@@ -29,26 +29,26 @@ router.post("/send",function(req, res, next){
 		service: 'Gmail',
 		auth: {
 			user: 'support@leafii.com',
-			pass: 'deathology'
+			pass: 'password'
 		}
 	});
 
 	var mailOptions = {
 		from: '"Leafii" <support@leafii.com>',
-		to: 'sinr0202@gmail.com',
-		subject: 'Testing out this emailer',
+		to: 'tiannyrenny@gmail.com',
+		subject: req.body.Subject,
 		text: req.body.Message,
-		html: '<p> You got mail</p>'
+		html: '<p>' + req.body.Message + '</p>'
 	};
 
 	transporter.sendMail(mailOptions, function(error, info){
 		if(error){
 			req.flash("error", "Email failed to send");
-			res.send('Failure');
+			res.redirect("/contact");
 		}
 		else {
 			req.flash("error", "Email is sent!");
-			res.send('Success');
+			res.redirect("/contact");
 		}
 	});
 });
