@@ -24,6 +24,11 @@ label {
 	text-align: left;
 }
 
+.emailMsg {
+	max-width: 535px;
+	height: 300px;
+}
+
 input {
 	width: 100%;
 }

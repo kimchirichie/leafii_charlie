@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+
+	#header
+		.container
+			.row
+				h1 Email to Users
+
+	.container
+		.form(class="animated fadeIn")
+			form(action="/contact/emailer" method="post")
+
+				.field-wrap
+					label Message
+					textarea(name="Message" class="emailMsg" type='text', placeholder="New Update to Leafii")
+				
+				if error
+					.field-wrap
+						div(id="error" class="animated fadeIn")
+							p= error
+
+				input(type='submit' value="Submit")

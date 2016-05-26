@@ -20,7 +20,7 @@ router.use(function (req, res, next){
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-	res.render('contact', {title: 'Contact'});
+	res.render('contact/emailer', {title: 'Contact'});
 });
 
 router.post("/send",function(req, res, next){
@@ -34,8 +34,8 @@ router.post("/send",function(req, res, next){
 	});
 
 	var mainOptions = {
-		from: 'John Doe <johndoe@gmail.com',
-		to: 'techguy@gmail.com',
+		from: 'Leafii <support@leafii.com>',
+		to: 'sinr0202@gmail.com',
 		subject: 'Website Submission',
 		text: 'you have a new submission with the following details' + req.body.name + 'Email: '+req.body.email+ 'Message: ' +req.body.message,
 		html: '<p> you got mail</p>'
@@ -43,12 +43,11 @@ router.post("/send",function(req, res, next){
 
 	transporter.sendMail(mailOptions, function(error, info){
 		if(error){
-			console.log(error);
-			res.redirect('/');
+			res.send('failure');
 		}
 		else {
 			console.log('Message sent: '+info.response);
-			res.redirect('/');
+			res.send('success');
 		}
 	});
 });

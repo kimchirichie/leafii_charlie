@@ -55,7 +55,7 @@ passport.deserializeUser(function(id, done) {
 app.use(/\/$/, traffic);
 app.use("/", routes);
 app.use("/auth", auth);
-app.use("/emailer", emailer);
+app.use("/contact", emailer);
 app.use("/users", users);
 
 // ASSETS
