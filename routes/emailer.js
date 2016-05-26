@@ -12,7 +12,7 @@ router.use(function (req, res, next){
 	if (!req.user){
 		res.redirect("/auth/signin");
 	} else if (!req.user.admin){
-		res.send("access denied");
+		res.send("Access Denied");
 	} else {
 		next();
 	}
@@ -20,7 +20,7 @@ router.use(function (req, res, next){
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-	res.render('contact/emailer', {title: 'Contact'});
+	res.render('contact/emailer', {title: 'Emailer'});
 });
 
 router.post("/send",function(req, res, next){
@@ -29,25 +29,26 @@ router.post("/send",function(req, res, next){
 		service: 'Gmail',
 		auth: {
 			user: 'support@leafii.com',
-			pass: 'something'
+			pass: 'deathology'
 		}
 	});
 
-	var mainOptions = {
-		from: 'Leafii <support@leafii.com>',
+	var mailOptions = {
+		from: '"Leafii" <support@leafii.com>',
 		to: 'sinr0202@gmail.com',
-		subject: 'Website Submission',
-		text: 'you have a new submission with the following details' + req.body.name + 'Email: '+req.body.email+ 'Message: ' +req.body.message,
-		html: '<p> you got mail</p>'
+		subject: 'Testing out this emailer',
+		text: req.body.Message,
+		html: '<p> You got mail</p>'
 	};
 
 	transporter.sendMail(mailOptions, function(error, info){
 		if(error){
-			res.send('failure');
+			req.flash("error", "Email failed to send");
+			res.send('Failure');
 		}
 		else {
-			console.log('Message sent: '+info.response);
-			res.send('success');
+			req.flash("error", "Email is sent!");
+			res.send('Success');
 		}
 	});
 });
