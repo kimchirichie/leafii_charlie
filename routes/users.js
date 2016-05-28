@@ -39,7 +39,7 @@ router.route("/:id")
 	.delete(function(req, res){
 		console.log("DELETE: /user/:id : Delete user");
 		res.send("not ready yet");
-		@@@@@@@@@@@@@
+//		@@@@@@@@@@@@@
 	});
 
 module.exports = router;
