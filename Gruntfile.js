@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 		watch: {
 			files: ['*'],
-			tasks: ['nodemon'],
+			tasks: ['nodemon', 'sass'],
 			options: {
 				spawn: false,
 			},
@@ -36,5 +36,5 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-nodemon');
 
 	// Default task(s).
-	grunt.registerTask('default', ['nodemon','watch','sass']);
+	grunt.registerTask('default', ['sass','nodemon','watch']);
 };
