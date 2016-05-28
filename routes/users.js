@@ -26,16 +26,20 @@ router.get('/', function(req, res, next) {
 	});
 });
 
-router.post("/:id",function(req, res){
-	console.log("POST: /edit : Updating user info");
-	console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-	console.log(req.body);
-	User.update(req.body,{
-		where: {
-			id: req.body.id
-		}
+router.route("/:id")
+	.post(function(req, res){
+		console.log("POST: /user/:id : Updating user info");
+		User.update(req.body,{
+			where: {
+				id: req.body.id
+			}
+		});
+		res.redirect("/users");
+	})
+	.delete(function(req, res){
+		console.log("DELETE: /user/:id : Delete user");
+		res.send("not ready yet");
+		@@@@@@@@@@@@@
 	});
-	res.redirect("/users")
-});
 
 module.exports = router;
