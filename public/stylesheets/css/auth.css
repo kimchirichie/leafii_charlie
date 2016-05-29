@@ -5,7 +5,8 @@ body {
   padding-top: 50px;
   color: #f8f8f8;
   text-align: center;
-  background-image: url("/images/values-bg.jpg"); }
+  background-image: url("/images/values-bg.jpg");
+  background-size: cover; }
 
 .form {
   padding: 30px;
@@ -20,7 +21,7 @@ label {
   text-align: left; }
 
 .emailMsg {
-  max-width: 535px;
+  max-width: 605px;
   height: 300px; }
 
 input {
